@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Firebase</title>
+</head>
+<body>
+	
+<pre id="object">
+
+</pre>
+
+
+<script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+<script src="app.js"></script>
+<script>
+	const preObject = document.getElementById("object");
+
+	const dbReference = firebase.database().ref().child('object');
+
+	dbReference.on('value', snap => {
+		preObject.innerHTML = JSON.stringify(snap.val(), null, 3);
+	})
+	
+</script>
+
+</body>
+</html>
